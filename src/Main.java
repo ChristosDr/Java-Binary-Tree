@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class Main {
 
     private TreeNode root;
@@ -36,10 +38,29 @@ public class Main {
         preOrder(root.right);
     }
 
+    public void preOrderStack(){
+        if (root == null){
+            return;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()){
+            TreeNode temp = stack.pop();
+            System.out.print(temp.data+" ");
+            if (temp.right!= null){
+                stack.push(temp.right);
+            }
+            if (temp.left!= null){
+                stack.push(temp.left);
+            }
+        }
+    }
+
     public static void main(String[] args) {
         Main sll = new Main();
         sll.createBinaryTree();
-        sll.preOrder(sll.root);
+        //sll.preOrder(sll.root);
+        sll.preOrderStack();
 
     }
 }
