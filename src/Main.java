@@ -56,11 +56,21 @@ public class Main {
         }
     }
 
+    public void inOrder(TreeNode root){//Na to jana dw
+        if (root == null){
+            return;
+        }
+        inOrder(root.left);
+        System.out.print(root.data+" ");
+        inOrder(root.right);
+    }
+
     public static void main(String[] args) {
         Main sll = new Main();
         sll.createBinaryTree();
         //sll.preOrder(sll.root);
-        sll.preOrderStack();
+        //sll.preOrderStack();
+        sll.inOrder(sll.root);
 
     }
 }
