@@ -15,11 +15,11 @@ public class Main {
     }
 
     public void createBinaryTree(){
-        TreeNode first = new TreeNode(1);
-        TreeNode second = new TreeNode(2);
-        TreeNode third = new TreeNode(3);
-        TreeNode fourth = new TreeNode(4);
-        TreeNode five = new TreeNode(5);
+        TreeNode first = new TreeNode(5);
+        TreeNode second = new TreeNode(7);
+        TreeNode third = new TreeNode(4);
+        TreeNode fourth = new TreeNode(8);
+        TreeNode five = new TreeNode(2);
 
         root = first;
         first.left = second;
