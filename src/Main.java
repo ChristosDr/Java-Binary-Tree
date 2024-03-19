@@ -15,11 +15,11 @@ public class Main {
     }
 
     public void createBinaryTree(){
-        TreeNode first = new TreeNode(5);
-        TreeNode second = new TreeNode(7);
-        TreeNode third = new TreeNode(4);
-        TreeNode fourth = new TreeNode(8);
-        TreeNode five = new TreeNode(2);
+        TreeNode first = new TreeNode(1);
+        TreeNode second = new TreeNode(2);
+        TreeNode third = new TreeNode(3);
+        TreeNode fourth = new TreeNode(4);
+        TreeNode five = new TreeNode(5);
 
         root = first;
         first.left = second;
@@ -27,6 +27,9 @@ public class Main {
 
         second.left = fourth;
         second.right = five;
+
+//        third.left = new TreeNode(6);
+//        third.right = new TreeNode(7);
     }
 
     public void preOrder(TreeNode root){
@@ -38,7 +41,7 @@ public class Main {
         preOrder(root.right);
     }
 
-    public void preOrderStack(){
+    public void preOrderIterative(){
         if (root == null){
             return;
         }
@@ -65,11 +68,29 @@ public class Main {
         inOrder(root.right);
     }
 
+    public void inOrderIterative(){
+        if (root == null){
+            return;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode temp = root;
+        while(!stack.isEmpty() || temp != null){
+            if (temp!= null){
+                stack.push(temp);
+                temp = temp.left;
+            }else{
+                temp = stack.pop();
+                System.out.println(temp.data+" ");
+                temp = temp.right;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         Main sll = new Main();
         sll.createBinaryTree();
         //sll.preOrder(sll.root);
-        //sll.preOrderStack();
+
         sll.inOrder(sll.root);
 
     }
