@@ -80,7 +80,7 @@ public class Main {
                 temp = temp.left;
             }else{
                 temp = stack.pop();
-                System.out.println(temp.data+" ");
+                System.out.print(temp.data+" ");
                 temp = temp.right;
             }
         }
@@ -91,7 +91,8 @@ public class Main {
         sll.createBinaryTree();
         //sll.preOrder(sll.root);
 
-        sll.inOrder(sll.root);
+        //sll.inOrder(sll.root);
+        sll.inOrderIterative();
 
     }
 }
