@@ -86,13 +86,23 @@ public class Main {
         }
     }
 
+    public void postOrder(TreeNode root){
+        if (root == null){
+            return;
+        }
+        postOrder(root.left);
+        postOrder(root.right);
+        System.out.print(root.data+" ");
+    }
+
     public static void main(String[] args) {
         Main sll = new Main();
         sll.createBinaryTree();
         //sll.preOrder(sll.root);
 
         //sll.inOrder(sll.root);
-        sll.inOrderIterative();
+        //sll.inOrderIterative();
+        sll.postOrder(sll.root);
 
     }
 }
