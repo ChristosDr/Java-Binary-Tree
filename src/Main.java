@@ -95,6 +95,29 @@ public class Main {
         System.out.print(root.data+" ");
     }
 
+    public void postOrderIterative(){
+        TreeNode current = root;
+        Stack<TreeNode> stack = new Stack<>();
+        while (current != null || !stack.isEmpty()){
+            if (current != null){
+                stack.push(current);
+                current = current.left;
+            }else {
+                TreeNode temp = stack.peek().right;
+                if (temp == null){
+                    temp = stack.pop();
+                    System.out.println(temp.data+" ");
+                    while (!stack.isEmpty() && temp == stack.peek().right){
+                        temp = stack.pop();
+                        System.out.println(temp.data+" ");
+                    }
+                }else {
+                    current = temp;
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) {
         Main sll = new Main();
         sll.createBinaryTree();
@@ -102,7 +125,8 @@ public class Main {
 
         //sll.inOrder(sll.root);
         //sll.inOrderIterative();
-        sll.postOrder(sll.root);
+        //sll.postOrder(sll.root);
+        sll.postOrderIterative();
 
     }
 }
